@@ -1,5 +1,27 @@
-# Loan Default Risk Analysis (Python)
-
+<div style=
+   "background:linear-gradient(90deg, #0B5563, #1A8A9A);
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+    ">
+<h1 style=
+    "color:white;
+     font-size:34px;
+     margin:0;
+     text-align:center !important;
+     ">
+     Bank Loan Default Risk Analysis
+     </h1>
+<p style=
+   "color:#D4F1F4;
+   font-size:16px; 
+   margin:5px 0 0; 
+   text-align:center !important;
+   ">
+   A Data Analytics project focused on understanding which borrower and loan characteristics are linked to loan default.
+   </p>
+   
+</div>
 An end-to-end exploratory data analysis (EDA) of consumer loan data, built in Python and Jupyter Notebook. The project cleans a raw lending dataset and investigates which borrower and loan characteristics are linked to **loan default**.
 
 > Final project for the AI-Driven Data Analytics Program.
