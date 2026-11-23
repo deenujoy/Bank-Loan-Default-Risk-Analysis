@@ -34,11 +34,29 @@ The raw file is included unchanged. Please check the original Kaggle page for th
 
 ## Methodology
 
-1. **Data loading and overview:** shape, data types, `head()`, `info()`, `describe()` and a missing-value check on all 111 columns
-2. **Pre-processing:**
-   - Removed 54 empty columns, 9 single-value columns and 6 free-text columns
-   - Handled missing values (median or mode fill, 0/1 flags where a blank means "no event")
-   - Checked for duplicates
-   - Converted text to numbers and dates, and corrected 90 credit-line dates read in the wrong century
-   - Created derived columns: default flag, issue year and month, credit history, loan-to-income ratio, income, DTI and loan-size bands, and net return
-   - Flagged income outliers with the IQR rule and capped income at the 99th percentile for charts
+The analysis follows a structured end-to-end workflow, with each phase explained in the notebook.
+
+**1. Problem definition**
+The aim is to find which borrower and loan characteristics (grade, term, purpose, income, DTI, interest rate, state) are linked to loan default, and how risk changes across segments and over time.
+
+**2. Data collection and loading**
+The raw dataset was obtained from Kaggle ("Bank Loan Dataset") and loaded into Pandas. The size, data types and a sample of rows were checked using `shape`, `dtypes`, `head()`, `info()` and `describe()`.
+
+**3. Data pre-processing**
+- Removed empty, constant and free-text columns that carry no analytical value
+- Handled missing values (median or mode filling, flags where a blank means "no event", and dropping a few rows)
+- Checked and removed duplicate records
+- Corrected data types and formats (term, employment length, percentage fields and invalid dates)
+- Created derived columns: default flag, issue year and month, credit history in years, loan-to-income ratio, income, DTI and loan-size bands, and net return
+- Detected outliers using the IQR rule and capped income at the 99th percentile for charts
+
+**4. Exploratory Data Analysis (EDA)**
+- **Univariate:** distributions of loan amount, interest rate, income and DTI, plus loan status, purpose, grade, term and home ownership
+- **Bivariate:** default rate compared across grade, purpose, term, income, DTI, loan size, verification status and state
+- **Multivariate:** grade-by-term heatmap, correlation heatmap and default rate by grade over the years
+
+**5. Statistical analysis**
+Group summaries, pivot tables, correlation analysis and chi-square tests were used to support the findings with numbers rather than only visual impressions.
+
+**6. Visualization**
+More than 10 visuals were created with Matplotlib and Seaborn, each with a title, labelled axes and a colour scheme chosen for readability, with a short interpretation under each chart.
